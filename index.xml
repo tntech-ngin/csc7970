@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Networking and the Internet</title>
-    <link>https://tntech-ngin.github.io/</link>
+    <link>https://tntech-ngin.github.io/csc7970/</link>
     <description>Recent content on Networking and the Internet</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://tntech-ngin.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tntech-ngin.github.io/csc7970/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Course Material</title>
-      <link>https://tntech-ngin.github.io/material/</link>
+      <link>https://tntech-ngin.github.io/csc7970/material/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tntech-ngin.github.io/material/</guid>
+      <guid>https://tntech-ngin.github.io/csc7970/material/</guid>
       <description>There is no mandatory textbook. The following books might be helpful. Peterson/Davie - open source book and you can use PDF or the EPUB version. You can also view the HTML pages here.
 Title: Computer Networks: A Systems Approach Authors: Larry Peterson and Bruce Davie Copyright: Elsevier, 2012 Source: https://github.com/SystemsApproach License: CC BY 4.0  Socket Programming Book - Use Beej&amp;rsquo;s Guide to Network Programming for socket programming introduction.</description>
     </item>
     
     <item>
       <title>Create your own content delivery network</title>
-      <link>https://tntech-ngin.github.io/programming3/</link>
+      <link>https://tntech-ngin.github.io/csc7970/programming3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tntech-ngin.github.io/programming3/</guid>
+      <guid>https://tntech-ngin.github.io/csc7970/programming3/</guid>
       <description>Due Date - November 27, 2019, 10PM CST Objectives
  Learn to break down a very complex problem into smaller problems
  Solve each smaller problem and bring them together to solve the larger problem
@@ -38,10 +38,10 @@ In this project, you are going to build on the first and the second project. You
     
     <item>
       <title>Programming Assignment</title>
-      <link>https://tntech-ngin.github.io/programming1/</link>
+      <link>https://tntech-ngin.github.io/csc7970/programming1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tntech-ngin.github.io/programming1/</guid>
+      <guid>https://tntech-ngin.github.io/csc7970/programming1/</guid>
       <description>Due Date - Sept 13, 2019 Objectives
  Learn to create network packets.
  Learn how packets can be sent over the network.
@@ -56,10 +56,10 @@ In this warmup project, you are going to implement a client and a server program
     
     <item>
       <title>Syllabus</title>
-      <link>https://tntech-ngin.github.io/syllabus/</link>
+      <link>https://tntech-ngin.github.io/csc7970/syllabus/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tntech-ngin.github.io/syllabus/</guid>
+      <guid>https://tntech-ngin.github.io/csc7970/syllabus/</guid>
       <description>Week 1 - January 22-24: Introduction, TCP/IP Internet architecture
 Lecture 1: Background, How to read papers Lecture 2: TCP/IP Internet architecture [Slide 1]  Week 2 (Jan 27-31):
 TCP/IP Internet architecture Reading J.H. Saltzer, D.P. Reed and D.D. Clark, End-to-End Arguments in System Design, ACM&#39;s TOCS 1981 D .D. Clark, “The Design Philosophy of the DARPA Internet Protocols”, ACM SIGCOMM Computer Communication Review, 1988  Tuesday - Paper Presentation 1 - Grant</description>
@@ -67,10 +67,10 @@ TCP/IP Internet architecture Reading J.H. Saltzer, D.P. Reed and D.D. Clark, End
     
     <item>
       <title>To the Cloud and Back</title>
-      <link>https://tntech-ngin.github.io/programming2/</link>
+      <link>https://tntech-ngin.github.io/csc7970/programming2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://tntech-ngin.github.io/programming2/</guid>
+      <guid>https://tntech-ngin.github.io/csc7970/programming2/</guid>
       <description>Due Date - October 20, 2019, 10PM CST Objectives
  Learn to create robust network protocols
  Learn about reliable communication

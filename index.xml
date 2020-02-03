@@ -61,8 +61,12 @@ In this warmup project, you are going to implement a client and a server program
       
       <guid>https://tntech-ngin.github.io/csc7970/syllabus/</guid>
       <description>Week 1 - January 22-24: Introduction, TCP/IP Internet architecture
-Lecture 1: Background, How to read papers Lecture 2: TCP/IP Internet architecture [Slide 1]  Week 2 (Jan 27-31):
-TCP/IP Internet architecture Reading J.H. Saltzer, D.P. Reed and D.D. Clark, End-to-End Arguments in System Design, ACM&#39;s TOCS 1981 D .D. Clark, “The Design Philosophy of the DARPA Internet Protocols”, ACM SIGCOMM Computer Communication Review, 1988  Tuesday - Paper Presentation 1 - Grant</description>
+Lecture 1: Background, How to read papers Lecture 2: TCP/IP Internet architecture  Week 2 (Jan 27-31):
+ Topic: TCP/IP Internet architecture
+ Reading:
+J.H. Saltzer, D.P. Reed and D.D. Clark, End-to-End Arguments in System Design, ACM&amp;rsquo;s TOCS 1981
+D .D. Clark, “The Design Philosophy of the DARPA Internet Protocols”, ACM SIGCOMM Computer Communication Review, 1988
+ Tuesday - Paper Presentation 1 - Grant</description>
     </item>
     
     <item>

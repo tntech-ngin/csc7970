@@ -8,7 +8,7 @@
     
 <link rel="icon" type="image/png" href="https://tntech-ngin.github.io/csc7970/images/favicon.png" />
 <link href="https://fonts.googleapis.com/css?family=Open&#43;Sans:400,600" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/csc7970/css/style.min.9bd1e730a56c290ac6b728001ae8cb26269e3ad81e9393854c9d85af485ffcd9.css" integrity="sha256-m9HnMKVsKQrGtygAGujLJiaeOtgek5OFTJ2Fr0hf/Nk=">
+<link rel="stylesheet" type="text/css" href="/csc7970/css/style.min.3939b5800a0c1910eee505c2fd4cd6e48cd60e1ff230ce1e86289e58b7dd22aa.css" integrity="sha256-OTm1gAoMGRDu5QXC/UzW5IzWDh/yMM4ehiieWLfdIqo=">
 <link rel="stylesheet" type="text/css" href="https://tntech-ngin.github.io/csc7970/css/icons.css">
 
   </head>
@@ -159,107 +159,61 @@
         <div class="divider"></div>
       </div>
     </div>
-    
-
-<h2 id="due-date-october-20-2019-10pm-cst">Due Date - October 20, 2019, 10PM CST</h2>
-
-<hr />
-
+    <h2 id="due-date---october-20-2019-10pm-cst">Due Date - October 20, 2019, 10PM CST</h2>
+<hr>
 <p><strong>Objectives</strong></p>
-
-<hr />
-
+<hr>
 <ol>
-<li><p>Learn to create robust network protocols</p></li>
-
-<li><p>Learn about reliable communication</p></li>
-
-<li><p>How a premitive proxy might work. You can use this to get around sensorship or firewalls.</p></li>
+<li>
+<p>Learn to create robust network protocols</p>
+</li>
+<li>
+<p>Learn about reliable communication</p>
+</li>
+<li>
+<p>How a premitive proxy might work. You can use this to get around sensorship or firewalls.</p>
+</li>
 </ol>
-
-<hr />
-
+<hr>
 <p><strong>Overview</strong></p>
-
-<hr />
-
-<p><br>
-In this project, you are going to build on the first project. You will have a server in the cloud that downloads and saves a web page in memory. You will then have clients that connects to the server and retrives this content. This is the overly simplified idea behind a <strong>WEB PROXY</strong>. For this project, we are not going to introduce encryption, though this can be easily done later. The client and server communications MUST use UDP (SOCK_DGRAM).
-<br></p>
-
-<p><br></p>
-
-<hr />
-
-<p><strong>Server Specifications</strong></p>
-
-<hr />
-
-<p>The server takes two arguments:</p>
-
+<hr>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <pre><code>$ anonserver -p &lt;PORT&gt; -s &lt;LOG FILE LOCATION&gt; -p &lt;web page to download&gt;
-</code></pre>
-
-<p>1.<code>PORT</code> - The port server listens on.</p>
-
+</code></pre><p>1.<code>PORT</code> - The port server listens on.</p>
 <p>2.<code>Log file location</code> - Where you will keep a record of actions.</p>
-
 <p>3.<code>p</code> - Which webpage to download and serve.</p>
-
 <p>For example:</p>
-
 <pre><code>$ anonserver -p 30000 -l /tmp/logfile -p www.nytimes.com
-</code></pre>
-
-<hr />
-
+</code></pre><hr>
 <p>Functional requirements</p>
-
-<hr />
-
+<hr>
 <ol>
-<li><p>The server must open a UDP socket on the specified port number</p></li>
-
-<li><p>The server should gracefully process incorrect port number and exit with a non-zero error code</p></li>
-
-<li><p>The server should send a FIN after done sending the packet</p></li>
-
-<li><p>The server should download the file specified by -p and save it from the memory</p></li>
+<li>
+<p>The server must open a UDP socket on the specified port number</p>
+</li>
+<li>
+<p>The server should gracefully process incorrect port number and exit with a non-zero error code</p>
+</li>
+<li>
+<p>The server should send a FIN after done sending the packet</p>
+</li>
+<li>
+<p>The server should download the file specified by -p and save it from the memory</p>
+</li>
 </ol>
-
-<hr />
-
-<p><strong><em>Client Specifications</em></strong></p>
-
-<hr />
-
-<p><br></p>
-
+<hr>
+<p><em><strong>Client Specifications</strong></em></p>
+<hr>
+<!-- raw HTML omitted -->
 <pre><code>$ anonclient -s &lt;SERVER-IP&gt; -p &lt;PORT&gt; -l LOGFILE
-</code></pre>
-
-<p>The client takes three arguments:</p>
-
+</code></pre><p>The client takes three arguments:</p>
 <p>1.<code>Server IP</code> - The IP address of the server.</p>
-
 <p>2.<code>PORT</code> - The port the server listens on.</p>
-
 <p>2.<code>Log file location</code> - Where you will keep a record of packets you received.</p>
-
 <pre><code>For example:
 $ anonclient -s 192.168.2.1 -p 6543 -l LOGFILE
-</code></pre>
-
-<p><br></p>
-
-<hr />
-
-<p>Protocol Specifications</p>
-
-<hr />
-
-<p>The payload of each UDP packet sent by server and client MUST start with the following 12-byte header. All fields are in network order (most significant bit first):</p>
-
+</code></pre><!-- raw HTML omitted -->
 <pre><code>   0                   1                   2                   3
    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -269,28 +223,31 @@ $ anonclient -s 192.168.2.1 -p 6543 -l LOGFILE
   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
   |                  Not Used                               |A|S|F|
   +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</code></pre>
-
-<p>Where:</p>
-
+</code></pre><p>Where:</p>
 <ol>
-<li><p>Sequence Number (32 bits): The sequence number of the first data octet in this packet (except when SYN is present). If SYN is present the sequence number is the initial sequence number (12345).</p></li>
-
-<li><p>Acknowledgement Number (32 bits): <strong>If the ACK control bit is set this field contains the value of the next sequence number the sender of the segment is expecting to receive. Once a connection is established this is always sent.</strong></p></li>
-
-<li><p>The acknowledgement number is given in the unit of bytes.</p></li>
-
-<li><p>Not Used (29 bits): Must be zero.</p></li>
-
-<li><p>A (ACK, 1 bit): Indicates that there the value of Acknowledgment Number field is valid</p></li>
-
-<li><p>S (SYN, 1 bit): Synchronize sequence numbers</p></li>
-
-<li><p>F (FIN, 1 bit): Finish, No more data from sender</p></li>
+<li>
+<p>Sequence Number (32 bits): The sequence number of the first data octet in this packet (except when SYN is present). If SYN is present the sequence number is the initial sequence number (12345).</p>
+</li>
+<li>
+<p>Acknowledgement Number (32 bits): <strong>If the ACK control bit is set this field contains the value of the next sequence number the sender of the segment is expecting to receive. Once a connection is established this is always sent.</strong></p>
+</li>
+<li>
+<p>The acknowledgement number is given in the unit of bytes.</p>
+</li>
+<li>
+<p>Not Used (29 bits): Must be zero.</p>
+</li>
+<li>
+<p>A (ACK, 1 bit): Indicates that there the value of Acknowledgment Number field is valid</p>
+</li>
+<li>
+<p>S (SYN, 1 bit): Synchronize sequence numbers</p>
+</li>
+<li>
+<p>F (FIN, 1 bit): Finish, No more data from sender</p>
+</li>
 </ol>
-
 <p>Here is what a sample interaction looks like:</p>
-
 <pre><code>      Server                                Client
       |                                      |
       |     seq=12345, ack=0, SYN            |
@@ -311,14 +268,9 @@ $ anonclient -s 192.168.2.1 -p 6543 -l LOGFILE
       | ----------------------------------&gt;  |
 
 
-</code></pre>
-
-<hr />
-
+</code></pre><hr>
 <p><strong>Client requirements:</strong></p>
-
-<hr />
-
+<hr>
 <ol>
 <li>The client must open a UDP socket and initiate 3-way handshake to the specified hostname/ip and port</li>
 <li>Send UDP packet src-ip=DEFAULT, src-port=DEFAULT, dst-ip=HOSTNAME-OR-IP, dst-port=PORT with SYN flag set, Connection ID initialized to 0, Sequence Number set to 12345, and Acknowledgement Number set to 0</li>
@@ -328,41 +280,29 @@ $ anonclient -s 192.168.2.1 -p 6543 -l LOGFILE
 <li>After file is successfully transferred, expect a FIN message from the server</li>
 <li>On a FIN message, send an FIN|ACK, and gracefully shutdown the connection and write the content to an output file</li>
 </ol>
-
-<hr />
-
+<hr>
 <p><strong>Server Requirements</strong></p>
-
-<hr />
-
+<hr>
 <ol>
 <li>The server must open a UDP socket on the specified port number</li>
 <li>The server should gracefully process incorrect port number and exit with a non-zero error code (you can assume that the folder is always correct). In addition to exit, the server must print out on standard error (std::cerr) an error message that starts with ERROR: string.</li>
 <li>The server should be able to accept and process multiple connection from clients at the same time</li>
 <li>Keep track of the last acknowldged byte - if data is lost(ack does not come back), retransmit after 0.5 seconds</li>
 </ol>
-
-<hr />
-
+<hr>
 <p><strong>Additional requirements:</strong></p>
-
-<hr />
-
+<hr>
 <ol>
 <li>Code must compile/run on Google Cloud Ubuntu VM (18.04) - we will test your code only on the VM.</li>
-
-<li><p>For each packet received, log both at server and receiver in the following format:</p>
-
+<li>For each packet received, log both at server and receiver in the following format:</li>
+</ol>
 <pre><code>&quot;RECV&quot; &lt;Sequence Number&gt; &lt;Acknowledgement Number&gt; [&quot;ACK&quot;] [&quot;SYN&quot;] [&quot;FIN&quot;]
 &quot;SEND&quot; &lt;Sequence Number&gt; &lt;Acknowledgement Number&gt; [&quot;ACK&quot;] [&quot;SYN&quot;] [&quot;FIN&quot;]
-</code></pre></li>
-
-<li><p>If packet is dropped and the server retransmits the data, log the following:</p>
-
-<pre><code>&quot;RETRAN&quot; &lt;Sequence Number&gt; &lt;Acknowledgement Number&gt; [&quot;ACK&quot;] [&quot;SYN&quot;] [&quot;FIN&quot;]
-</code></pre></li>
+</code></pre><ol start="3">
+<li>If packet is dropped and the server retransmits the data, log the following:</li>
 </ol>
-
+<pre><code>&quot;RETRAN&quot; &lt;Sequence Number&gt; &lt;Acknowledgement Number&gt; [&quot;ACK&quot;] [&quot;SYN&quot;] [&quot;FIN&quot;]
+</code></pre>
   </div>
 </section>
 

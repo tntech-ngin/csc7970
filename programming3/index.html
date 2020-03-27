@@ -8,7 +8,7 @@
     
 <link rel="icon" type="image/png" href="https://tntech-ngin.github.io/csc7970/images/favicon.png" />
 <link href="https://fonts.googleapis.com/css?family=Open&#43;Sans:400,600" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/csc7970/css/style.min.9bd1e730a56c290ac6b728001ae8cb26269e3ad81e9393854c9d85af485ffcd9.css" integrity="sha256-m9HnMKVsKQrGtygAGujLJiaeOtgek5OFTJ2Fr0hf/Nk=">
+<link rel="stylesheet" type="text/css" href="/csc7970/css/style.min.3939b5800a0c1910eee505c2fd4cd6e48cd60e1ff230ce1e86289e58b7dd22aa.css" integrity="sha256-OTm1gAoMGRDu5QXC/UzW5IzWDh/yMM4ehiieWLfdIqo=">
 <link rel="stylesheet" type="text/css" href="https://tntech-ngin.github.io/csc7970/css/icons.css">
 
   </head>
@@ -159,188 +159,109 @@
         <div class="divider"></div>
       </div>
     </div>
-    
-
-<h2 id="due-date-november-27-2019-10pm-cst">Due Date - November 27, 2019, 10PM CST</h2>
-
-<hr />
-
+    <h2 id="due-date---november-27-2019-10pm-cst">Due Date - November 27, 2019, 10PM CST</h2>
+<hr>
 <p><strong>Objectives</strong></p>
-
-<hr />
-
+<hr>
 <ol>
-<li><p>Learn to break down a very complex problem into smaller problems</p></li>
-
-<li><p>Solve each smaller problem and bring them together to solve the larger problem</p></li>
-
-<li><p>Learn how CDNs work and build your own CDN</p></li>
+<li>
+<p>Learn to break down a very complex problem into smaller problems</p>
+</li>
+<li>
+<p>Solve each smaller problem and bring them together to solve the larger problem</p>
+</li>
+<li>
+<p>Learn how CDNs work and build your own CDN</p>
+</li>
 </ol>
-
-<hr />
-
+<hr>
 <p><strong>Overview</strong></p>
-
-<hr />
-
-<p><br></p>
-
-<p><img src="/img/cdn-load-balancer.png" alt="overview" /></p>
-
-<p><br></p>
-
+<hr>
+<!-- raw HTML omitted -->
+<p><img src="/img/cdn-load-balancer.png" alt="overview"></p>
+<!-- raw HTML omitted -->
 <p>In this project, you are going to build on the first and the second project. You will build your own &ldquo;CDN load-balancer&rdquo;. A cloud typically hosts multiple copies (replicas) of the same content. Depending on where the request is coming from, it routes the requests a suitable replica.  A primary component of any CDN is the entity called a load-balancer. The function of a load-balancer is route requests to the &ldquo;most suitable&rdquo; server. CDNs choose their own metric for defining which server is the most suitable. It can be the replica with the lowest latency, the replica with lowest loss, or a combination of multiple parameters.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>In this exercise, you will create three replicas with the same content. You will also keep track of the delay and loss parameters to each replica. At the beginning, each replica will download some content from a website. When a request comes in, you will redirect the request to the most suitable replica (see the definition below), download the content, and close the connection. When the next request comes in, you will redirect that request to the most suitable replica at that time. The network conditions will change throughout the experiment.</p>
-
-<p><br></p>
-
+<!-- raw HTML omitted -->
 <p>The client and server communications may use TCP or UDP.
-<br></p>
-
-<p><br></p>
-
-<hr />
-
-<p><strong>Replica Server Specifications</strong></p>
-
-<hr />
-
-<p>The server takes two arguments:</p>
-
+<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
 <pre><code>$ replicaserver -p &lt;PORT&gt; -s &lt;LOG FILE LOCATION&gt; -p &lt;web page to download&gt;
-</code></pre>
-
-<p>1.<code>PORT</code> - The port server listens on.</p>
-
+</code></pre><p>1.<code>PORT</code> - The port server listens on.</p>
 <p>2.<code>Log file location</code> - Where you will keep a record of actions.</p>
-
 <p>3.<code>p</code> - Which webpage to download and serve.</p>
-
 <p>For example:</p>
-
 <pre><code>$ replicaserver -p 30000 -l /tmp/logfile -p www.nytimes.com
-</code></pre>
-
-<hr />
-
+</code></pre><hr>
 <p>Functional requirements</p>
-
-<hr />
-
+<hr>
 <ol>
 <li>The server must open a TCP/UDP socket on the specified port number</li>
 <li>The server should gracefully process incorrect port number and exit with a non-zero error code</li>
 <li>The server should download the file specified by -p and save it to the memory</li>
 </ol>
-
-<hr />
-
-<p><strong><em>Load Balancer Specifications</em></strong></p>
-
-<hr />
-
-<p><br></p>
-
+<hr>
+<p><em><strong>Load Balancer Specifications</strong></em></p>
+<hr>
+<!-- raw HTML omitted -->
 <pre><code>$ loadbalancer -s &lt;SERVER-IP&gt; -p &lt;PORT&gt; -l LOGFILE
-</code></pre>
-
-<p>The load balancer takes three arguments:</p>
-
+</code></pre><p>The load balancer takes three arguments:</p>
 <p>1.<code>Server IPs</code> - A list of replica servers&rsquo; IP addresses</p>
-
 <p>2.<code>PORT</code> - The port the servers listen on. They will all listen to the same port</p>
-
 <p>2.<code>Log file location</code> - Where you will keep a record of packets you received.</p>
-
 <pre><code>For example:
 $ loadbalancer -s replica_servers.txt -p 6543 -l LOGFILE
-</code></pre>
-
-<p><br></p>
-
-<hr />
-
-<p>Protocol Specifications:</p>
-
-<hr />
-
+</code></pre><!-- raw HTML omitted -->
 <ol>
 <li>Design your own protocol headers for most efficient communication between the load-balancer and the replicas</li>
 <li>The client should connect to the replica server that has the highest preference.</li>
 <li>We define the preference as lowest combined value of weighed delay and loss. Lower value wins.</li>
-<li>Preference = 0.75*loss percentage + 0.25*delay in milliseconds</li>
+<li>Preference = 0.75<em>loss percentage + 0.25</em>delay in milliseconds</li>
 <li>The load-balancer should probe the replica servers periodically and keep a list of preferences. You should be able to use a ping like program for this part.</li>
 <li>The load-balancer should be able to accept and process multiple connection from clients at the same time</li>
 </ol>
-
-<hr />
-
-<p><strong><em>Client Specifications</em></strong></p>
-
-<hr />
-
-<p><br></p>
-
+<hr>
+<p><em><strong>Client Specifications</strong></em></p>
+<hr>
+<!-- raw HTML omitted -->
 <pre><code>$ anonclient -s &lt;load-balancer-IP&gt; -p &lt;PORT&gt; -l LOGFILE
-</code></pre>
-
-<p>The client takes three arguments:</p>
-
+</code></pre><p>The client takes three arguments:</p>
 <p>1.<code>load-balancer IP</code> - The IP address of the load-balancer.</p>
-
 <p>2.<code>PORT</code> - The port the server listens on.</p>
-
 <p>2.<code>Log file location</code> - Where you will keep a record of packets you received.</p>
-
 <pre><code>For example:
 $ anonclient -s 192.168.2.1 -p 6543 -l LOGFILE
-</code></pre>
-
-<hr />
-
+</code></pre><hr>
 <p><strong>Client Requirements</strong></p>
-
-<hr />
-
+<hr>
 <ol>
 <li>The client will simply open a connection to the load-balancer and request a content</li>
 <li>Design your own protocol headers for most efficient communication between the client and the load-balancer</li>
 <li>The client should be able to receive the content and write to a file</li>
 <li>The client should gracefully process incorrect port number and exit with a non-zero error code (you can assume that the folder is always correct). In addition to exit, the client must print out on standard error (std::cerr) an error message that starts with ERROR: string.</li>
 </ol>
-
-<hr />
-
+<hr>
 <p><strong>Additional requirements:</strong></p>
-
-<hr />
-
+<hr>
 <ol>
 <li>Code must compile/run on Google Cloud Ubuntu VM (18.04) - we will test your code only on the VM.</li>
-
-<li><p>For each packet received, log interaction at the load-balancer in the following format:</p>
-
+<li>For each packet received, log interaction at the load-balancer in the following format:</li>
+</ol>
 <pre><code>Request from &lt;CLIENT IP&gt; for  &lt;URL&gt;. Redirecting to &lt;Replica IP&gt;, Preference &lt;Preference&gt;, Next Preference was &lt;Next lowest preference&gt; to &lt;Replica IP&gt;
 Response from &lt;Replica IP&gt;, sending request to &lt;Client IP&gt;
 
-</code></pre></li>
-
-<li><p>If error occurs: log the following:</p>
-
+</code></pre><ol start="3">
+<li>If error occurs: log the following:</li>
+</ol>
 <pre><code>&quot;Error: Unable to handle request between &lt;Client IP&gt;, &lt;Replica IP&gt;, &lt;Preference&gt;, &lt;Error details&gt;
-</code></pre></li>
-
-<li><p>Set the loss and delay using these commands:</p>
-
+</code></pre><ol start="4">
+<li>Set the loss and delay using these commands:</li>
+</ol>
 <pre><code>tc qdisc add dev &lt;ethernet device, e.g, eth0&gt; root netem delay 200ms
 tc qdisc add dev &lt;ethernet device, e.g, eth0&gt; root netem loss 20%
 tc qdisc del dev eth0
-</code></pre></li>
-</ol>
-
+</code></pre>
   </div>
 </section>
 

@@ -8,7 +8,7 @@
     
 <link rel="icon" type="image/png" href="https://tntech-ngin.github.io/csc7970/images/favicon.png" />
 <link href="https://fonts.googleapis.com/css?family=Open&#43;Sans:400,600" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/csc7970/css/style.min.9bd1e730a56c290ac6b728001ae8cb26269e3ad81e9393854c9d85af485ffcd9.css" integrity="sha256-m9HnMKVsKQrGtygAGujLJiaeOtgek5OFTJ2Fr0hf/Nk=">
+<link rel="stylesheet" type="text/css" href="/csc7970/css/style.min.3939b5800a0c1910eee505c2fd4cd6e48cd60e1ff230ce1e86289e58b7dd22aa.css" integrity="sha256-OTm1gAoMGRDu5QXC/UzW5IzWDh/yMM4ehiieWLfdIqo=">
 <link rel="stylesheet" type="text/css" href="https://tntech-ngin.github.io/csc7970/css/icons.css">
 
   </head>
@@ -159,80 +159,63 @@
         <div class="divider"></div>
       </div>
     </div>
-    
-
-<h2 id="due-date-sept-13-2019">Due Date - Sept 13, 2019</h2>
-
-<hr />
-
+    <h2 id="due-date---sept-13-2019">Due Date - Sept 13, 2019</h2>
+<hr>
 <p><strong>Objectives</strong></p>
-
-<hr />
-
+<hr>
 <ol>
-<li><p>Learn to create network packets.</p></li>
-
-<li><p>Learn how packets can be sent over the network.</p></li>
-
-<li><p>Familiarize you with the concept of sockets.</p></li>
-
-<li><p>Learn packing structures, endianness, unpacking, and interpreting network data.</p></li>
-
-<li><p>Learn how to use actual data from a packet.</p></li>
-
-<li><p>Use packet capture to visually inspect protocols.</p>
-
-<hr />
-
-<p><strong>Overview</strong></p>
-
-<hr />
-
-<p><br>
-In this warmup project, you are going to implement a client and a server program that will send a command over the network. The command simply turns on an LED light. However, the LED light speaks a special protocol. All we know about this protocol is the packet format used for turning on the light. Your task is to create this packet and then send it to the server for turning on this light. For this assignment, you won&rsquo;t actually turn on a light, just sending the command is enough.
-<br></p></li>
+<li>
+<p>Learn to create network packets.</p>
+</li>
+<li>
+<p>Learn how packets can be sent over the network.</p>
+</li>
+<li>
+<p>Familiarize you with the concept of sockets.</p>
+</li>
+<li>
+<p>Learn packing structures, endianness, unpacking, and interpreting network data.</p>
+</li>
+<li>
+<p>Learn how to use actual data from a packet.</p>
+</li>
+<li>
+<p>Use packet capture to visually inspect protocols.</p>
+</li>
 </ol>
-
-<p><br></p>
-
-<hr />
-
-<p><strong><em>Server Specifications</em></strong></p>
-
-<hr />
-
-<p>The server takes two arguments:</p>
-
+<hr>
+<p><strong>Overview</strong></p>
+<hr>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <pre><code>$ lightserver -p &lt;PORT&gt; -l &lt;LOG FILE LOCATION&gt;
-</code></pre>
-
-<p>1.<code>PORT</code> - The port server listens on.</p>
-
+</code></pre><p>1.<code>PORT</code> - The port server listens on.</p>
 <p>2.<code>Log file location</code> - Where you will keep a record of actions.</p>
-
 <pre><code>For example:
 $ lightserver -p 30000 -l /tmp/logfile
-</code></pre>
-
-<hr />
-
-<p><strong><em>Deliverables (each worth 5 points)</em></strong></p>
-
-<hr />
-
+</code></pre><hr>
+<p><em><strong>Deliverables (each worth 5 points)</strong></em></p>
+<hr>
 <ol>
-<li><p>Write a server that listens for incoming connections on the specified port.</p></li>
-
-<li><p>Server must parse two command line arguments, port and log locations.</p></li>
-
-<li><p>The server must <em>not</em> exit after receiving a single packet.</p></li>
-
-<li><p>Once a client connects, it logs a message in the following format <code>&quot;Received connection from &lt;CLIENT IP, PORT&gt; &quot;</code></p></li>
-
-<li><p>Once it receives a hello message from the client, it logs the connection and sends a hello back to the client.</p></li>
-
-<li><p>You can assume the packet format is the following:</p>
-
+<li>
+<p>Write a server that listens for incoming connections on the specified port.</p>
+</li>
+<li>
+<p>Server must parse two command line arguments, port and log locations.</p>
+</li>
+<li>
+<p>The server must <em>not</em> exit after receiving a single packet.</p>
+</li>
+<li>
+<p>Once a client connects, it logs a message in the following format <code>&quot;Received connection from &lt;CLIENT IP, PORT&gt; &quot;</code></p>
+</li>
+<li>
+<p>Once it receives a hello message from the client, it logs the connection and sends a hello back to the client.</p>
+</li>
+<li>
+<p>You can assume the packet format is the following:</p>
+</li>
+</ol>
 <pre><code>+-----------------+--------------------------+-------------------------+
 |                 |                          |                         |
 |                 |                          |                         |
@@ -246,62 +229,50 @@ $ lightserver -p 30000 -l /tmp/logfile
 |                                                                      |
 |                                                                      |
 +----------------------------------------------------------------------+
-</code></pre></li>
-
-<li><p>It receives the packet header first, followed by the message. <em>Hint: You need two RECV calls</em>.</p></li>
-
-<li><p>Check if Version == 17. If not, log an error message <code>VERSION MISMATCH</code> and continue to listen. Do not exit.</p></li>
-
-<li><p>If Version == 17, check the message type. If message Type is 1 - the corresponding command is <code>LIGHTON</code>. If message type is 2 - the corresponding command is <code>LIGHTOFF</code>. No other command is supported.</p></li>
-
-<li><p>If the server sees a supported command, log &ldquo;EXECUTING SUPPORTED COMMAND: COMMANDNAME&rdquo;, else log &lt;&ldquo;IGNORING UNKNOWN COMMAND: COMMANDNAME&rdquo;.</p></li>
-
-<li><p>Send back a &ldquo;SUCCESS&rdquo; message to the client.</p></li>
-
-<li><p>Make sure server does not exit on 0 byte messages.
-<br></p></li>
+</code></pre><ol start="4">
+<li>
+<p>It receives the packet header first, followed by the message. <em>Hint: You need two RECV calls</em>.</p>
+</li>
+<li>
+<p>Check if Version == 17. If not, log an error message <code>VERSION MISMATCH</code> and continue to listen. Do not exit.</p>
+</li>
+<li>
+<p>If Version == 17, check the message type. If message Type is 1 - the corresponding command is <code>LIGHTON</code>. If message type is 2 - the corresponding command is <code>LIGHTOFF</code>. No other command is supported.</p>
+</li>
+<li>
+<p>If the server sees a supported command, log &ldquo;EXECUTING SUPPORTED COMMAND: COMMANDNAME&rdquo;, else log &lt;&quot;IGNORING UNKNOWN COMMAND: COMMANDNAME&rdquo;.</p>
+</li>
+<li>
+<p>Send back a &ldquo;SUCCESS&rdquo; message to the client.</p>
+</li>
+<li>
+<p>Make sure server does not exit on 0 byte messages.
+<!-- raw HTML omitted --></p>
+</li>
 </ol>
-
-<hr />
-
-<p><strong><em>Client Specifications</em></strong></p>
-
-<hr />
-
-<p><br></p>
-
+<hr>
+<p><em><strong>Client Specifications</strong></em></p>
+<hr>
+<!-- raw HTML omitted -->
 <pre><code>$ lightclient -s &lt;SERVER-IP&gt; -p &lt;PORT&gt; -l LOGFILE
-</code></pre>
-
-<p>The client takes three arguments:</p>
-
+</code></pre><p>The client takes three arguments:</p>
 <p>1.<code>Server IP</code> - The IP address of the server.</p>
-
 <p>2.<code>PORT</code> - The port the server listens on.</p>
-
 <p>2.<code>Log file location</code> - Where you will keep a record of packets you received.</p>
-
 <pre><code>For example:
 $ lightclient -s 192.168.2.1 -p 6543 -l LOGFILE
-</code></pre>
-
-<p><br></p>
-
-<hr />
-
-<p><strong><em>Client Requirements (each worth 5 points, item 9 is worth 10 points)</em></strong></p>
-
-<hr />
-
-<p><br></p>
-
-<ol>
-<li><p>The client must parse three command line arguments, server, port, and logfile.</p></li>
-
-<li><p>The client should connect to the server on the specified port.</p></li>
-
-<li><p>Constructs and sends a hello packet to the server.</p>
-
+</code></pre><!-- raw HTML omitted -->
+<ol start="2">
+<li>
+<p>The client must parse three command line arguments, server, port, and logfile.</p>
+</li>
+<li>
+<p>The client should connect to the server on the specified port.</p>
+</li>
+<li>
+<p>Constructs and sends a hello packet to the server.</p>
+</li>
+</ol>
 <pre><code>+-----------------+--------------------------+-------------------------+
 |                 |                          |                         |
 |                 |                          |                         |
@@ -315,12 +286,14 @@ $ lightclient -s 192.168.2.1 -p 6543 -l LOGFILE
 |                                                                      |
 |                                                                      |
 +----------------------------------------------------------------------+
-</code></pre></li>
-
-<li><p>Receive reply from Server - if version is 17, log &ldquo;VERSION ACCEPTED&rdquo;, else log - &ldquo;VERSION MISMATCH&rdquo;</p></li>
-
-<li><p>If version is accepted, send a command packet.</p>
-
+</code></pre><ol start="5">
+<li>
+<p>Receive reply from Server - if version is 17, log &ldquo;VERSION ACCEPTED&rdquo;, else log - &ldquo;VERSION MISMATCH&rdquo;</p>
+</li>
+<li>
+<p>If version is accepted, send a command packet.</p>
+</li>
+</ol>
 <pre><code>+-----------------+--------------------------+-------------------------+
 |                 |                          |                         |
 |                 |                          |                         |
@@ -334,27 +307,28 @@ $ lightclient -s 192.168.2.1 -p 6543 -l LOGFILE
 |                                                                      |
 |                                                                      |
 +----------------------------------------------------------------------+
-</code></pre></li>
-
-<li><p>Receive the server&rsquo;s reply, log the reply, and gracefully shutdown the socket. You can assume the server always replies with a &ldquo;SUCCESS&rdquo; message for this assignment.</p></li>
-
-<li><p>Use TCPDUMP or Wireshark to capture the interactions, turn the .pcap file in with the assignment.</p></li>
+</code></pre><ol start="8">
+<li>
+<p>Receive the server&rsquo;s reply, log the reply, and gracefully shutdown the socket. You can assume the server always replies with a &ldquo;SUCCESS&rdquo; message for this assignment.</p>
+</li>
+<li>
+<p>Use TCPDUMP or Wireshark to capture the interactions, turn the .pcap file in with the assignment.</p>
+</li>
 </ol>
-
-<p><br></p>
-
-<hr />
-
+<!-- raw HTML omitted -->
+<hr>
 <p>Additional requirements:</p>
-
-<hr />
-
+<hr>
 <ol>
-<li><p>Code must compile/run on Google Cloud Ubuntu VM (18.04) - we will test your code only on the VM.</p></li>
-
-<li><p>You must pack the packet in a structure. If you are using python, use the struct module.</p></li>
-
-<li><p>Pay extra attention to byte-order encoding before sending the packet. Big-endianness is the dominant ordering in today&rsquo;s network protocols.</p></li>
+<li>
+<p>Code must compile/run on Google Cloud Ubuntu VM (18.04) - we will test your code only on the VM.</p>
+</li>
+<li>
+<p>You must pack the packet in a structure. If you are using python, use the struct module.</p>
+</li>
+<li>
+<p>Pay extra attention to byte-order encoding before sending the packet. Big-endianness is the dominant ordering in today&rsquo;s network protocols.</p>
+</li>
 </ol>
 
   </div>
